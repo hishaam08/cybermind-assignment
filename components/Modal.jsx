@@ -9,22 +9,28 @@ const AssignedToOptions = [
   { value: "Jane Smith", label: "Jane Smith", image: "Jane Smith.jpg" },
 ];
 
+function generateUniqueId() {
+  const timestamp = Date.now().toString(36);
+  const randomStr = Math.random().toString(36).substring(2, 5);
+  return timestamp + randomStr;
+}
+
 function Modal() {
   const initialState = [
     {
-      id: useId(),
+      id: generateUniqueId(),
       name: "Jane Smith",
       comment:
         "Thanks for assigning me on the task. We’ll get the details ironed out.",
     },
     {
-      id: useId(),
+      id: generateUniqueId(),
       name: "Jane Smith",
       comment:
         "Thanks for assigning me on the task. We’ll get the details ironed out.",
     },
     {
-      id: useId(),
+      id: generateUniqueId(),
       name: "Charles",
       comment: "Thanks for assigning me on the task.",
     },
@@ -38,7 +44,7 @@ function Modal() {
     if (comment === "") return;
     setAllComments((comments) => [
       ...comments,
-      { name: taskAssignedTo, comment: comment },
+      { id: generateUniqueId(), name: taskAssignedTo, comment: comment },
     ]);
     setComment("");
   }

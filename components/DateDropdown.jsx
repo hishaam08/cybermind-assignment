@@ -35,7 +35,7 @@ function DateDropdown() {
   const currentToTime = add1Hour(time);
   const [toTime, setToTime] = useState(currentToTime);
 
-  console.log(toTime);
+  // console.log(toTime);
 
   const displayDate = new Date(date)
     .toString()
